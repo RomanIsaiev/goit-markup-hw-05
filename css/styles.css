@@ -720,9 +720,9 @@ body {
 
   cursor: pointer;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -823,11 +823,9 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: var(--filter-button-background-color);
-  background-color: var(--acctent-hover-color);
+  background-color: var(--filter-button-color);
 
-  padding-top: 40px;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 40px 32px;
 
   height: 100%;
 
@@ -850,14 +848,16 @@ body {
   background: rgba(46, 47, 66, 0.4);
 
   opacity: 1;
+  visibility: none;
 
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
-  visibility: none;
+  visibility: hidden;
 }
 
 .modal {
@@ -867,19 +867,20 @@ body {
   transform: translate(-50%, -50%);
 
   width: 408px;
-  height: 576px;
+  height: 584px;
 
   background: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-button {
   position: absolute;
-  right: 0;
-  top: 0;
-  margin: 24px;
+  right: 24px;
+  top: 24px;
 
   height: 24px;
   width: 24px;
@@ -907,7 +908,7 @@ body {
 
 .close-button:hover,
 .close-button:focus {
-  border: 1px solid var(--acctent-hover-color);
+  border: none;
   background-color: var(--acctent-hover-color);
 }
 
